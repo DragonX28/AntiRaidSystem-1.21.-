@@ -2,7 +2,7 @@
 
 RU / Русский
 ------------
-Плагин защиты от рейд-ботов и сканеров (offline-mode) для Spigot/Paper 1.21.x.
+Плагин защиты от рейда (offline-mode) для Spigot/Paper 1.21.x.
 
 ## Возможности
 - Привязка никнейма к IP с «грейсом» на несколько IP и опцией разрешения той же /24
@@ -142,3 +142,4 @@ See `config.yml` for fully documented options (RU/EN comments).
 - Prohibited: selling; modifying/decompiling/forking and distributing derivatives; removing attribution; changing the license.
 - You may modify source code only for personal use on your own servers. Publishing/distributing modified versions is prohibited.
 See `LICENSE` for details.
+
