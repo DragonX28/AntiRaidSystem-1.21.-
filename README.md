@@ -1,13 +1,13 @@
-# AntiRaidSystem 1.21.*
+# AntiRaidSystem
 
 RU / Русский
 ------------
-Плагин защиты от рейда (если у вас (offline-mode)) для Spigot/Paper 1.21.x.
+Плагин защиты от рейд-ботов и сканеров (offline-mode) для Spigot/Paper 1.21.x.
 
 ## Возможности
-- Привязка никнейма к IP
+- Привязка никнейма к IP с «грейсом» на несколько IP и опцией разрешения той же /24
 - Белые списки по никам и IP
-- Ограничения для новых игроков (блок команд + задержка команд)
+- Ограничения для новых игроков (блок команд + кулдаун)
 - Глобальная блокировка опасных команд (например, execute)
 - RU/EN мультиязычность с автоопределением локали
 - Режим строгой защиты для админ-ников (только заранее привязанные IP)
@@ -20,11 +20,12 @@ RU / Русский
 2. Запустите сервер для генерации конфига.
 3. Настройте `config.yml` под ваши нужды.
 
-## Быстрый старт
+## Быстрый старт (рутинные шаги)
 1. Оставьте строгие дефолты (1 IP, без /24, доверие через сутки).
 2. Добавьте свои админ-ники в `protected.players` (или командой `/ars protect <ник>`).
-3. Первые входы админов: `/ars trust <ник>`.
+3. Первые входы админов: авторизуйте их IP через `/ars authorize <ник> <ip>`.
 4. Для игроков с частой сменой IP — по ситуации используйте `/ars authorize` или повышайте `general.ip_lock_auto_learn_up_to`.
+5. Следите за логами плагина при блокировках (pre-login и команды).
 
 ## Сценарии и решения
 - Динамический IP у игрока:
@@ -48,8 +49,7 @@ RU / Русский
 - `/ars allowip <ip>` — добавить разрешённый IP
 - `/ars protect <player>` — включить строгую защиту для ника
 - `/ars unprotect <player>` — выключить строгую защиту
-- `/ars trust <ник>` - Сделать игрока доверенным
-- `/ars untrust <ник>` - Снять доверие
+
 Право: `ars.admin` (по умолчанию OP).
 
 ## Настройка (основное)
@@ -68,7 +68,7 @@ RU / Русский
 ## Лицензия (кратко)
 - Разрешено: использовать плагин; распространять оригинальный JAR без изменений с указанием автора.
 - Запрещено: продавать; модифицировать/декомпилировать/форкать и распространять производные версии; убирать автора; менять лицензию.
-- Изменять исходники можно только для личного использования на своих серверах с указанием автора плагина; публикация/распространение изменённых версий запрещены.
+- Изменять исходники можно только для личного использования на своих серверах; публикация/распространение изменённых версий запрещены.
 См. файл `LICENSE`.
 
 ---
@@ -96,8 +96,9 @@ Protection plugin against offline-mode raid/scanner attacks for Spigot/Paper 1.2
 ## Quick start (routine steps)
 1. Keep strict defaults (1 IP, no /24, trust after 24h).
 2. Add your admin nicknames to `protected.players` (or use `/ars protect <player>`).
-3. On first admin logins, trust their via `/ars trust <player>`.
+3. On first admin logins, authorize their IPs via `/ars authorize <player> <ip>`.
 4. For users with frequently changing IPs, either use `/ars authorize` as needed or increase `general.ip_lock_auto_learn_up_to`.
+5. Watch plugin logs for pre-login and command blocks.
 
 ## Scenarios & solutions
 - Player with dynamic IP:
@@ -120,8 +121,6 @@ Protection plugin against offline-mode raid/scanner attacks for Spigot/Paper 1.2
 - `/ars allowip <ip>` — add allowed IP
 - `/ars protect <player>` — enable strict protection for nickname
 - `/ars unprotect <player>` — disable strict protection
-- `/ars trust <player>` - trust player
-- `/ars untrust <ник>` - untrust
 
 Permission: `ars.admin` (default: OP).
 

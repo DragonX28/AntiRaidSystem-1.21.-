@@ -1,0 +1,167 @@
+# AntiRaidSystem configuration
+# RU: Основные настройки плагина. Ниже каждая опция описана на русском и английском.
+# EN: Core plugin settings. Each option is documented in Russian and English.
+
+general:
+  # RU: Включить привязку ника к IP. Если true — игрок может войти только с первого IP,
+  # RU: иначе для нового IP требуется авторизация через консоль.
+  # EN: Enable nickname-to-IP lock. When true, a player can only join from the first IP
+  # EN: unless a console admin authorizes a new IP via command.
+  ip_lock_enabled: true
+
+  # RU: Если включено, заходить смогут только ники из списка allowlist.players.
+  # EN: If enabled, only players listed in allowlist.players can join.
+  allowlist_players_only: false
+
+  # RU: Если включено, заходить смогут только IP из списка allowlist.ips.
+  # EN: If enabled, only IPs listed in allowlist.ips can join.
+  allowlist_ips_only: false
+
+  # RU: Если true — блокировать заданные опасные команды для всех (включая OP).
+  # EN: If true, block specific dangerous commands for everyone (including OPs).
+  block_dangerous_commands_globally: true
+
+  # RU: Язык по умолчанию для консоли/сообщений до входа (если язык игрока неизвестен).
+  # RU: Доступно: ru, en
+  # EN: Default language for console/before-join messages (when player locale is unknown).
+  # EN: Options: ru, en
+  default_language: ru
+
+  # RU: «Грейс» для IP-лока: автоматически запоминать до N IP для ника без авторизации.
+  # RU: Поставьте 1 чтобы разрешить только один IP; больше — дружелюбнее к динамическим IP.
+  # EN: IP lock grace: automatically learn up to N IPs per nickname without authorization.
+  # EN: Set 1 to allow only one IP; higher values help users with dynamic IPs.
+  ip_lock_auto_learn_up_to: 1
+
+  # RU: Если true — автоматически разрешать IP из той же /24 подсети, что и уже известные.
+  # EN: If true, auto-allow IPs in the same /24 subnet as already known ones.
+  ip_lock_allow_same_subnet_24: false
+
+security:
+  # RU: Считать новых игроков «недоверенными» в первой сессии. Им запрещены команды из
+  # RU: blocked_for_untrusted и на них действует кулдаун команд.
+  # EN: Treat new players as untrusted during first session. They cannot use commands in
+  # EN: blocked_for_untrusted and are subject to command cooldown.
+  restrict_new_players: true
+
+  # RU: Кулдаун (в секундах) на команды для каждого игрока. 0 — отключить.
+  # EN: Seconds to rate-limit commands per player. 0 disables.
+  command_cooldown_seconds: 10
+  # RU: Через сколько секунд после входа игрок становится доверенным (по умолчанию сутки = 86400).
+  # EN: Seconds after join to mark player as trusted (default 1 day = 86400).
+  trust_after_seconds: 86400
+
+  # RU: Команды, блокируемые для всех при включенном block_dangerous_commands_globally.
+  # RU: Регистр не важен, слэш в начале не обязателен.
+  # EN: Commands blocked for everyone if block_dangerous_commands_globally is true.
+  # EN: Names are case-insensitive, with or without leading slash.
+  blocked_commands_global:
+    - execute
+    - minecraft:execute
+
+  # RU: Команды, запрещенные для недоверенных игроков (первая сессия или пока не доверен).
+  # EN: Commands blocked for untrusted players (first session or until trusted).
+  blocked_for_untrusted:
+    # Core admin/staff actions
+    # RU: Базовые админ-команды
+    # EN: Core admin/staff actions
+    - op
+    - deop
+    - whitelist
+    - ban
+    - pardon
+    - kick
+    - gamemode
+    - minecraft:op
+    - minecraft:execute
+    # RU: Скорборд
+    # EN: Scoreboard
+    - scoreboard
+    - minecraft:scoreboard
+    # Plugin info and introspection
+    # RU: Информация о плагинах/сервере
+    # EN: Plugin/server info commands
+    - pl
+    - plugins
+    - bukkit:plugins
+    - ver
+    - version
+    - about
+    - bukkit:version
+    - paper
+    - help
+    - bukkit:help
+    # WorldEdit/FAWE typical commands (in addition to // prefix handling)
+    # RU: Команды WorldEdit/FAWE (плюс перехват // через лисенер)
+    # EN: WorldEdit/FAWE commands (plus // handled in listener)
+    - we
+    - worldedit:we
+    - brush
+    - worldedit:brush
+    - schematic
+    - schem
+    - worldedit:schem
+    - copy
+    - cut
+    - paste
+    - replace
+    - set
+    - stack
+    - walls
+    - drain
+    - fill
+
+messages:
+  prefix: "&7[&cARS&7] &r"
+  # Bilingual pre-login (kick) messages, used when player locale is unknown.
+  # Keep them short and both-lingual.
+  # RU: Двухъязычные короткие сообщения при кике, когда язык игрока неизвестен.
+  # EN: Short bilingual kick messages when player locale is unknown.
+  kick:
+    disallow_ip_mismatch_bi: "Этот ник уже закреплен за другим IP. | Nick is locked to another IP."
+    disallow_player_not_allowed_bi: "Игрок не в списке разрешенных. | Player is not allowlisted."
+    disallow_ip_not_allowed_bi: "Ваш IP не разрешен. | Your IP is not allowlisted."
+  ru:
+    # RU: Полные сообщения на русском (используются в чате/для известных локалей).
+    # EN: Full Russian messages (used in chat/when locale is known).
+    disallow_ip_mismatch: "Этот ник уже закреплен за другим IP. Попросите админа авторизовать ваш IP в консоли."
+    disallow_player_not_allowed: "Игрок не в списке разрешенных."
+    disallow_ip_not_allowed: "Ваш IP не разрешен для входа на сервер."
+    blocked_command_global: "Эта команда заблокирована на сервере."
+    blocked_command_untrusted: "Эта команда недоступна новым игрокам."
+    command_cooldown: "Не так быстро. Подождите %seconds%s."
+    reloaded: "Конфигурация перезагружена."
+    authorized: "Авторизовано: %player% → %ip%"
+    allowed_player_added: "Разрешен игрок: %player%"
+    allowed_ip_added: "Разрешен IP: %ip%"
+    not_console: "Недостаточно прав (нужна консоль или ars.admin)."
+  en:
+    # RU: Полные сообщения на английском.
+    # EN: Full English messages.
+    disallow_ip_mismatch: "This nickname is locked to another IP. Ask admin to authorize your IP."
+    disallow_player_not_allowed: "Player is not allowlisted."
+    disallow_ip_not_allowed: "Your IP is not allowlisted to join."
+    blocked_command_global: "This command is blocked on the server."
+    blocked_command_untrusted: "This command is unavailable for new players."
+    command_cooldown: "Too fast. Wait %seconds%s."
+    reloaded: "Configuration reloaded."
+    authorized: "Authorized: %player% → %ip%"
+    allowed_player_added: "Allowed player: %player%"
+    allowed_ip_added: "Allowed IP: %ip%"
+    not_console: "Insufficient permission (console or ars.admin required)."
+
+allowlist:
+  # RU: Списки разрешённых ников и IP.
+  # EN: Allowlists for nicknames and IP addresses.
+  players: []
+  ips: []
+
+protected:
+  # RU: Строгая защита для критичных никнеймов (админы/консоль-ник и т.п.).
+  # RU: Для этих ников запрещено автодобавление IP и /24 подсеть.
+  # RU: Допускается вход ТОЛЬКО с заранее привязанных IP.
+  # EN: Strict protection for critical nicknames (admins). No auto-learn, no /24.
+  # EN: Join is allowed ONLY from previously bound IPs.
+  players: []
+
+

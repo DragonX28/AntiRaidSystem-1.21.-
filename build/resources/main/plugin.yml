@@ -1,0 +1,17 @@
+name: AntiRaidSystem
+version: '0.0.1'
+main: Seigu.antiRaidSystem.AntiRaidSystem
+api-version: '1.21'
+load: STARTUP
+authors: [ Seigu ]
+description: Плагин на защиту от рейдов серверов
+website: t.me/SeiguPlugins
+commands:
+  ars:
+    description: AntiRaidSystem admin command
+    usage: /<command> reload | protect <player> | unprotect <player> | authorize <player> <ip> | allowplayer <player> | allowip <ip>
+    permission: ars.admin
+permissions:
+  ars.admin:
+    description: Allows administration of AntiRaidSystem
+    default: op

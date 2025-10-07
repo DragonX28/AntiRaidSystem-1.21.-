@@ -1,0 +1,55 @@
+AntiRaidSystem License (RU/EN)
+
+RU / Русская версия
+--------------------
+Автор: Seigu (c) 2025
+
+1. Разрешено:
+   - Использовать плагин в любом виде (в т.ч. на коммерческих серверах),
+     при условии соблюдения пунктов 2–4.
+   - Свободно распространять оригинальный JAR-файл без изменений,
+     указывая автора (Seigu) и название плагина (AntiRaidSystem).
+
+2. Запрещено:
+   - Продавать плагин, ключи активации или доступ к нему.
+   - Изменять, декомпилировать, реверс-инжинирить, форкать и
+     распространять производные версии плагина в каком-либо виде.
+   - Убирать упоминание автора и/или менять лицензию.
+
+3. Исходный код:
+   - Исходный код предоставляется для ознакомления и сборки.
+   - Внесение изменений в исходный код допускается только для
+     личного использования на своих серверах. Публикация
+     изменённых версий и/или их распространение запрещены.
+
+4. Отсутствие гарантий:
+   - Плагин предоставляется «как есть» без каких-либо гарантий
+     работоспособности или пригодности для конкретной цели. Автор не
+     несёт ответственности за возможный ущерб, вызванный использованием
+     плагина.
+
+EN / English version
+--------------------
+Author: Seigu (c) 2025
+
+1. Permitted:
+   - Use the plugin in any environment (including commercial servers),
+     provided that sections 2–4 are respected.
+   - Freely redistribute the original, unmodified JAR file with proper
+     attribution to the author (Seigu) and the plugin name (AntiRaidSystem).
+
+2. Prohibited:
+   - Selling the plugin, license keys, or access to it.
+   - Modifying, decompiling, reverse engineering, forking, or distributing
+     derivative versions of the plugin in any form.
+   - Removing author attribution and/or changing this license.
+
+3. Source code:
+   - Source code is provided for review and building purposes.
+   - You may modify the source code only for personal use on your own servers.
+     Publishing and/or distributing modified versions is prohibited.
+
+4. No warranty:
+   - The plugin is provided "as is" without any warranties of functionality
+     or fitness for a particular purpose. The author is not liable for any
+     damages resulting from its use.
