@@ -20,12 +20,11 @@ RU / Русский
 2. Запустите сервер для генерации конфига.
 3. Настройте `config.yml` под ваши нужды.
 
-## Быстрый старт (рутинные шаги)
+## Быстрый старт
 1. Оставьте строгие дефолты (1 IP, без /24, доверие через сутки).
 2. Добавьте свои админ-ники в `protected.players` (или командой `/ars protect <ник>`).
-3. Первые входы админов: авторизуйте их IP через `/ars authorize <ник> <ip>`.
+3. Первые входы админов: `/ars trust <ник>`.
 4. Для игроков с частой сменой IP — по ситуации используйте `/ars authorize` или повышайте `general.ip_lock_auto_learn_up_to`.
-5. Следите за логами плагина при блокировках (pre-login и команды).
 
 ## Сценарии и решения
 - Динамический IP у игрока:
@@ -97,9 +96,8 @@ Protection plugin against offline-mode raid/scanner attacks for Spigot/Paper 1.2
 ## Quick start (routine steps)
 1. Keep strict defaults (1 IP, no /24, trust after 24h).
 2. Add your admin nicknames to `protected.players` (or use `/ars protect <player>`).
-3. On first admin logins, authorize their IPs via `/ars authorize <player> <ip>`.
+3. On first admin logins, trust their via `/ars trust <player>`.
 4. For users with frequently changing IPs, either use `/ars authorize` as needed or increase `general.ip_lock_auto_learn_up_to`.
-5. Watch plugin logs for pre-login and command blocks.
 
 ## Scenarios & solutions
 - Player with dynamic IP:
